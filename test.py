@@ -1,5 +1,10 @@
-import github, pygithub_scraps
+import github, pygithub_scraps, names
 
 g = github.Github("colinarobinson","July15th")
 
-pygithub_scraps.make_team_for_each_student(g)
+csf = g.get_organization("evergreen-csf")
+
+big_team = csf.create_team("programmers", permission="push")
+
+for student in names.unames:
+  big_team.add_to_members(g.get_user(student))
