@@ -38,19 +38,18 @@ Morton, Jessica M
 Nguyen, Ngoc B
 Nguyen, Trong T
 O'Connor, Bryan N
-Randolph, Clifford F		Yes
-Raver, Zackary J		Yes
-Rawls, Jordan L		Yes
-Robinson, Anant		Yes
-Rozenbaum, Ariel		Yes
-Sayre, Katrina E	V13	Undecided
-Schaefer, Kyle S	F	Yes
-Schult, Matthew E		Yes
-Scott, Jason R		Yes
-Shrout, James M	V13	No
-Spencer, Hannah C		Yes
-Stringham, Micah P		Yes
-Stubbins, Samuel P		Yes
-Swearingen, Cody A	F	Yes
-Wagner, Travis D		Undecided
-Yunis, Haron M		Yes 
+Randolph, Clifford F
+Raver, Zackary J
+Rawls, Jordan L
+Robinson, Anant
+Rozenbaum, Ariel
+Sayre, Katrina E
+Schaefer, Kyle S
+Schult, Matthew E
+Scott, Jason R
+Spencer, Hannah C
+Stringham, Micah P
+Stubbins, Samuel P
+Swearingen, Cody A
+Wagner, Travis D
+Yunis, Haron M
