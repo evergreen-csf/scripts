@@ -1,0 +1,15 @@
+#! /bin/sh
+# usage: make-empty-repo <evergreen ID> <local parent directory>
+# relies on ssh key authentication, may not work if you don't 
+#  have that set up.
+
+cd $2
+mkdir $1
+cd $1
+git init
+touch README.md
+mkdir arch prog
+git add .
+git commit -m "added arch and prog directories at main level for organization"
+git remote add origin git@github.com:evergreen-csf/$1.git
+git push -u origin master
