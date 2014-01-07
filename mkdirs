@@ -3,11 +3,12 @@
 # relies on ssh key authentication with github, may not work if you
 #  haven't set that up
 
+cd $2
 cd $1
 git pull
 mkdir arch prog
-echo "Repository for Architecture work" > arch/README
-echo "Repository for Programming work" > prog/README
+echo "Directory for Architecture work" > arch/README
+echo "Directory for Programming work" > prog/README
 git add .
 git commit -m "added arch and prog dirs for organization"
 git push origin master
