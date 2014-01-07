@@ -59,3 +59,35 @@ namedict = {'barrob16': 'Barrob16',
 emails = namedict.keys()
 
 unames = namedict.values()
+
+def email_prediction(lastfirst_name):
+  lastname, firstname = tuple(lastfirst_name.split(', '))
+  firstname = firstname.split()[0].lower()
+  lastname = lastname.lower()
+  return lastname[:3] + firstname[:3]
+
+def info_tuple(student_name):
+  potential_emails = [email for email in emails if email.startswith(email_prediction(student))]
+  
+  if len(potential_emails) is 1:
+    return (potential_emails[0], student_name, namedict[potential_emails[0]])
+  elif len(potential_emails) is 0:
+    print "No email/uname pair found for student:", student_name
+    return (raw_input("Enter email to use, or NONE if not known: "),
+	    student_name,
+	    raw_input("Enter github username, or NONE if not known: "))
+  else:
+    print "Potential emails found for", student_name + ":", [(email, namedict(email)) for email in potential_emails]
+    return (raw_input("Enter email to use: "),
+	    student_name,
+	    raw_input("Enter github username: "))
+	    
+
+studentf_name = 'students_continuing.txt'
+outputfile = open('names.txt','w+')
+
+with open(studentf_name) as studentf:
+  for student in studentf.readlines():
+    print student
+    email, name, uname = info_tuple(student)
+    outputfile.write(email + " : " + name + " : " + uname + "\n")
