@@ -1,64 +1,21 @@
-namedict = {'barrob16': 'Barrob16',
-	    'schkyl10': 'schkyl10',
-	    'lethi17': 'lethi17',
-	    'swecod03': 'swecod03',
-	    'kenjos03': 'Jawshouamoua',
-	    'gootra28': 'gootra28',
-	    'bajdav18': 'BajDav18',
-	    'carjus31': 'CarJus31',
-	    'jenroy30': 'Ranzear',
-	    'aliahm18': 'aliahm',
-	    'aarmag22': 'aarmag22',
-	    'rawjor18': 'rawjor18',
-	    'lauton04': 'lauton04',
-	    'gorbra14': 'mmm314159',
-	    'ngutro25': 'ngutro25',
-	    'kalmar19': 'kalmar19',
-	    'barjos05': 'barjos05',
-	    'mccale19': 'mccale19',
-	    'arnrus09': 'arnrus09',
-	    'linzac03': 'linzac03',
-            'mennic31': 'Mendelson9',
-            'heruli08': 'am0k',
-            'saykat03': 'saykat03',
-            'edwchr30': 'edwchr30',
-            'crohun22': 'crohun22',
-            'wagtra12': 'wagtra12',
-            'ranste07': 'ranste',
-            'clejos10': 'Josephcle7',
-            'dohie11': 'dohie11',
-            'sanale04': 'sanale04',
-            'andbra16': 'andbra16',
-            'yunhar04': 'yunhar04',
-            'schmat18': 'schmat18',
-            'adazac10': 'adazac10',
-            'robana07': 'robana07',
-            'benbri03': 'BrieannaBenson',
-            'spehan01': 'spehan01',
-            'cascam07': 'cascam07',
-            'stusam07': 'Stubbycat85',
-            'bedkev01': 'mechjesus',
-            'morjes14': 'jbirdd1',
-            'morjac05': 'morjac05',
-            'loeand16': 'loeand16',
-            'ngungo16': 'ngungo16',
-            'ravzac14': 'ravzac14',
-            'kimkev08': 'kimkev08',
-            'allkei20': 'allkei20',
-            'hartra06': 'terns',
-            'rancli11': 'rancli11',
-            'rozari15': 'rozari15',
-            'carros11': 'carros11',
-            'farken24': 'farken24',
-            'chaale04': 'babywithahat',
-            'hefnic26': 'hefnic26',
-            'barwhi18': 'barwhi18',
-            'hooian24': 'hooian24',
-            'golsam27': 'samuel108'}
+with open('names.txt') as nfile:
+ student_info_tuples = [tuple(line.split(' : ')) for line in nfile.readlines()]
 
-emails = namedict.keys()
+def student_info_dict(key, value):
+  """
+  student_info_dict(key, value) -> {key : value} for each student
+  possible values for key and value are 'email', 'name', and 'github'
+  """
+  fieldmap = {"email" : 0, "name" : 1, "github" : 2}
+  key = fieldmap[key]
+  value = fieldmap[value]
+  
+  return {student[key] : student[value] for student in student_info_tuples}
 
-unames = namedict.values()
+def student_info_field(field)
+  fieldmap = {"email" : 0, "name" : 1, "github" : 2}
+  field = fieldmap[field]
+  return (student[field] for student in student_info_tuples)
 
 def email_prediction(lastfirst_name):
   lastname, firstname = tuple(lastfirst_name.split(', '))
@@ -82,12 +39,13 @@ def info_tuple(student_name):
 	    student_name,
 	    raw_input("Enter github username: "))
 	    
+def gen_namefile()
+ studentf_name = 'students_continuing.txt'
+ outputfile = open('names.txt','w+')
 
-studentf_name = 'students_continuing.txt'
-outputfile = open('names.txt','w+')
-
-with open(studentf_name) as studentf:
+ with open(studentf_name) as studentf:
   for student in studentf.readlines():
     print student
     email, name, uname = info_tuple(student)
     outputfile.write(email + " : " + name + " : " + uname + "\n")
+ outputfile.close()
