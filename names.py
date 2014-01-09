@@ -12,6 +12,7 @@ def student_info_dict(key, value):
   
   return {student[key] : student[value] for student in student_info_tuples}
 
+# Where does the dictionary 'student' come from?
 def student_info_field(field)
   fieldmap = {"email" : 0, "name" : 1, "github" : 2}
   field = fieldmap[field]
@@ -23,6 +24,7 @@ def email_prediction(lastfirst_name):
   lastname = lastname.lower()
   return lastname[:3] + firstname[:3]
 
+# Where does namedict come from?
 def info_tuple(student_name):
   potential_emails = [email for email in emails if email.startswith(email_prediction(student))]
   
@@ -38,7 +40,9 @@ def info_tuple(student_name):
     return (raw_input("Enter email to use: "),
 	    student_name,
 	    raw_input("Enter github username: "))
-	    
+
+# Creates the file students_continuing.txt as a list of colon-delimeted
+# tuples of e-mail address, full name, and Github username	    
 def gen_namefile()
  studentf_name = 'students_continuing.txt'
  outputfile = open('names.txt','w+')
