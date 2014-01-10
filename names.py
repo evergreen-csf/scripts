@@ -38,14 +38,3 @@ def info_tuple(student_name):
     return (raw_input("Enter email to use: "),
 	    student_name,
 	    raw_input("Enter github username: "))
-	    
-def gen_namefile()
- studentf_name = 'students_continuing.txt'
- outputfile = open('names.txt','w+')
-
- with open(studentf_name) as studentf:
-  for student in studentf.readlines():
-    print student
-    email, name, uname = info_tuple(student)
-    outputfile.write(email + " : " + name + " : " + uname + "\n")
- outputfile.close()
