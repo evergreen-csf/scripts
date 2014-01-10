@@ -25,3 +25,9 @@ pygithub_scraps.py
  - WIP, so bear with me. If you think something should be in there that isn't, feel free to add it
  - if you feel something should be changed or removed, ask me about it first--in case I've written something somewhere that depends on it.
  - upon importing, will ask for your github username and password. These are used to authenticate ensuing api calls, and are not stored.
+
+
+See individual files for more detail
+---
+
+If there's something that you think isn't obvious or is badly explained, let me (Colin) know
