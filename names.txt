@@ -27,9 +27,7 @@ kalmar19 : Kallem, Mary A : kalmar19
 kenjos03 : Kendall, Joshua M : Jawshouamoua
 lauton04 : Lauricella, Tony R : lauton04
 lethi17 : Le, Thien Huong V : lethi17
-
-NONE : Lesch, Sean D : NONE
-
+lessea24 : Lesch, Sean D : lessea24
 linzac03 : Linton, Zachary J : linzac03
 loeand16 : Loewen, Andrew J : loeand16
 logtyl02 : Logan, Tyler D : LogTyl02
@@ -55,3 +53,9 @@ stusam07 : Stubbins, Samuel P : Stubbycat85
 swecod03 : Swearingen, Cody A : swecod03
 wagtra12 : Wagner, Travis D : wagtra12
 yunhar04 : Yunis, Haron M : yunhar04
+brydav17 : Bryant, David : nedink  
+havdar16 : Havens, Darrell : havdar16 
+doukev12 : Douglas, Kevin : doukev12
+platre21 : Plate, Trevor : platre21
+dretho08 : Drews, Thomas : dretho08
+bowsha28 : Bows, Sharon : bowsha08
