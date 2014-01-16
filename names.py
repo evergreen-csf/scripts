@@ -14,7 +14,7 @@ def student_info_dict(key, value):
   return {student[key] : student[value] for student in student_info_tuples}
   
 
-def student_info_field(field)
+def student_info_field(field):
   fieldmap = {"email" : 0, "name" : 1, "github" : 2}
   field = fieldmap[field]
   return (student[field] for student in student_info_tuples)
