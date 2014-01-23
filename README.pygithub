@@ -1,0 +1,8 @@
+This describes how to use Colin's pygithub scripts for evergreen-csf org
+management on GitHub, at least as far as I've been able to figure them out.
+
+This first step is only necessary because I didn't give Colin a full
+spreadsheet of e-mail addresses associated with student names.
+
+emails.txt - Place all student Evergreen IDs here
+
