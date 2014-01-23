@@ -18,6 +18,12 @@ def student_info_field(field)
   field = fieldmap[field]
   return (student[field] for student in student_info_tuples)
 
+# Predicts the e-mail by using Evergreen formula of:
+# First three letters of last name,
+# first three letters of first name,
+# arbitrary two-digit number
+# This must somehow be used with e-mails.txt later to come up with
+# two digit number.
 def email_prediction(lastfirst_name):
   lastname, firstname = tuple(lastfirst_name.split(', '))
   firstname = firstname.split()[0].lower()
