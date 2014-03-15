@@ -1,7 +1,9 @@
 from subprocess import Popen
 import names, sys, os.path
 
-Popen(["mkdir", "grading"])
+target = raw_input("Directory to clone repos into? (blank for current dir): ")
+
+target = "." if not target else target
 
 for student in names.student_info_field("email"):
- Popen(["git", "clone", "git@github.com:evergreen-csf/"+ student +".git", "grading/"+ student])
+ Popen(["git", "clone", "git@github.com:evergreen-csf/"+ student +".git", target +"/"+ student])
