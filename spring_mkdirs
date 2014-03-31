@@ -1,0 +1,16 @@
+#! /bin/sh
+# usage: mkdirs <student's repo> <local parent directory>
+# relies on ssh key authentication with github, may not work if you
+#  haven't set that up
+
+cd $2
+cd $1
+git pull
+mkdir W14
+mv arch/ prog/ W14/
+mkdir arch prog
+echo "Directory for Architecture work" > arch/README
+echo "Directory for Programming work" > prog/README
+git add .
+git commit -am "reorganization for Spring"
+git push origin master

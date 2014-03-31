@@ -2,4 +2,5 @@ from subprocess import Popen
 import names
 
 for student in names.emails:
-  Popen(["./mkdirs", student, "../grading/"])
+  #altered for Spring quarter
+  Popen(["./spring_mkdirs", student, "../grading/"])
