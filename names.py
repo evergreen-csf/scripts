@@ -39,13 +39,13 @@ def info_tuple(student_name):
     return (potential_emails[0], student_name, namedict[potential_emails[0]])
     
   elif len(potential_emails) is 0:
-    print "No email/uname pair found for student:", student_name
+    print( "No email/uname pair found for student:", student_name )
     return (raw_input("Enter email to use, or NONE if not known: "),
 	    student_name,
 	    raw_input("Enter github username, or NONE if not known: "))
 	    
   else:
-    print "Potential emails found for", student_name + ":", [(email, namedict[email]) for email in potential_emails]
+    print ("Potential emails found for", student_name + ":", [(email, namedict[email]) for email in potential_emails])
     return (raw_input("Enter email to use: "),
 	    student_name,
 	    raw_input("Enter github username: "))
