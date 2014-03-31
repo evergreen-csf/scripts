@@ -1,4 +1,4 @@
-with open('names.txt') as nfile:
+with open('staff/data/14w/names.txt') as nfile:
  student_info_tuples = [tuple(line.split(' : ')) for line in nfile.readlines()]
  
 
