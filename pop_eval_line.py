@@ -24,8 +24,12 @@ except IOError, (ErrorNumber, ErrorMessage):
 lines = infile.readlines()
 infile.close()
 
-tags = ["{W"+str(i)+"}" for i in range(1,11)]
-print(tags)
+goal_tags = ["{W"+str(i)+"}" for i in range(1,11)]
+hw_tags = ["{HW"+str(i)+"}" for i in range(1,8)]
+ss_tags = ["{SS"+str(i)+"}" for i in range(1,11)]
+sem_tags = ["{SEM"+str(i)+"}" for i in range(1,11)]
+tags = goal_tags + ss_tags + sem_tags
+#print(tags)
 
 found_dict = {key: False for key in tags}
 
