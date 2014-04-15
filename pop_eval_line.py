@@ -37,9 +37,19 @@ for line in lines:
 			found_dict[tag] = True
 
 infile = open(infilename, "a")
+
+any_tags = True
+print(found_dict.values())
+for found in found_dict.values():
+	any_tags = any_tags and found
+
+if (not any_tags):
+	infile.write("\n # Tags for automated substitution. Do not edit by hand. \n")
+
 # Go through all tags not found, and add them to end of file
-for tag in found_dict.keys():
+for tag in tags:
 	if (not found_dict[tag]):
 		infile.write(tag + "\n")
+		any_tags = True
 
 infile.close()
