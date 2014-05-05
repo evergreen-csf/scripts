@@ -1,5 +1,6 @@
-with open('staff/data/14w/names.txt') as nfile:
- student_info_tuples = [tuple(line.split(' : ')) for line in nfile.readlines()]
+__p = raw_input("Path to name file (./staff/data/14s/names.txt'): ")
+with open(__p if __p != '' else 'staff/data/14s/names.txt') as nfile:
+ student_info_tuples = [tuple(line.strip('\n').split(' : ')) for line in nfile.readlines()]
  
 
 def student_info_dict(key, value):

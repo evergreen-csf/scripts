@@ -1,0 +1,7 @@
+for D in `find . -maxdepth 1 -type d`
+do
+    cd $D
+    git add .
+    git commit --dry-run -vm "test"
+    cd ../
+done
