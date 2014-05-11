@@ -1,5 +1,9 @@
-with open('names.txt') as nfile:
- student_info_tuples = [tuple(line.split(' : ')) for line in nfile.readlines()]
+student_info_tuples = []
+
+def load_file(filename):
+  global student_info_tuples
+  with open(filename) as nfile:
+    student_info_tuples = [tuple(line.split(' : ')) for line in nfile.readlines()]
 
 def student_info_dict(key, value):
   """
