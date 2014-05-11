@@ -10,5 +10,8 @@ import names
 # Oh, these are the arguments to call to the script,
 # and it's in spawned processes because the scraps must take a long time to
 # complete, and you don't want to block on them.
-for student in names.emails:
-  Popen(["./mkdirs", student, "../grading/"])
+#for student in names.emails:
+#  Popen(["./mkdirs", student, "../grading/"])
+for student in ("model"): # names.student_info_field("email"):
+  #altered for Spring quarter
+  Popen(["./spring_mkdirs", student, "../grading/"])

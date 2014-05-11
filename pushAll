@@ -1,0 +1,4 @@
+for D in `find . -maxdepth 1 -type d`
+do
+    (cd $D; git add .; git commit -m "updated eval"; git push;)
+done
