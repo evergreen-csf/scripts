@@ -1,10 +1,11 @@
-from subprocess import Popen
-import names, sys, os.path
+from subprocess import Popen, STDOUT, STDERR
+import names, sys, os.path, shlex
 
 for student in names.student_info_field("email"):
   print("repos/"+student)
   try:
-    Popen(["cd","repos/"+student,";","git","pull"])
-  except:
-    print("Couldn't open grading/"+student)
+    cmd = shlex.split('sh -c "(cd repos/'+student+'; git pull)"')
+    Popen(cmd)
+  except (e, msg):
+    print("Couldn't open repos/"+student)
 
