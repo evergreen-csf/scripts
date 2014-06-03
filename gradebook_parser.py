@@ -28,7 +28,25 @@ if len(argv) is not 2:
   quit()
 
 header_tag_dict = {"Sem" : "S",
-                   "Talk" : "SS"}
+                   "Talk" : "SS",
+		   "A Workshop" : "AWK",
+		   "A hw" : "AHW",
+		   "A lab" : "ALAB",
+		   "Arch Midterm" : "AMID",
+		   "Soft" : "ANTH",
+		   "Group" : "MTG",
+		   "Worksheet" : "PWK"}
+
+arch_tags = ("AWK", "ALAB", "AHW", "AMID")
+sem_tags = ("S", "SS")
+prog_tags = ("PWK", "L", "C", "W")
+anthro_tags = ("ANTH")
+secnames = ["sem", "prog", "arch"] #### This is an important line. only sections listed here will be graded
+				   ####
+secnames_to_tags = {"sem" : sem_tags,
+		    "arch" : arch_tags,
+		    "prog" : prog_tags,
+		    "anth" : anthro_tags}
   
 try:
   gradebookfile = open(argv[1])
@@ -60,30 +78,42 @@ for student in gradebook, open that student's eval.txt and put in a tag
 for each assignment in gradebook, check if its prefix is in header_tag_dict
  if it is, 
 '''
+in_sec = (lambda tag, sec : True in map(lambda s : tag.startswith('{'+s), sec))
+def ones_in_sec(tags, secname):
+  return filter(lambda t: in_sec(t, secnames_to_tags[secname]), tags)
 
 import cloneAll, names
 
 for student in gradebook:
-  try:
-    target = glob(cloneAll.target+"/"+student+"/prog/*eval.txt")[0]
-    evalfile = open(target, "r")
-  except IOError, (ErrorNumber, ErrorMessage):
-    if ErrorNumber == 2: #File not found
-      print("File %s not found." % argv[1])
-      quit()
-    else:
-      print(ErrorMessage)
-      quit()
-  except IndexError, ErrorMessage:
-    print("%s: Eval file at %s not found." % (ErrorMessage, cloneAll.target+"/"+student+"/prog/*eval.txt"))
-    continue
+  evalfiles = []
+  notfound = []
+  for sec in secnames:
+    try: 
+      target = cloneAll.target+"/"+student+"/"+sec+"/"+student+"-eval.txt"
+      evalfiles.append(open(target, 'r'))
+    
+    except IOError, (ErrorNumber, ErrorMessage):
+      if ErrorNumber == 2: #File not found
+        print("File %s not found." % target)
+        notfound.append(sec)
+      else:
+        print(ErrorMessage)
+        quit()
   
-  tags = set(evalfile.read().splitlines())
-  tags -= set(['\n'])
-  evalfile.close()
+
+  tags = set()
+  for evalfile in evalfiles:
+    tags |= set(evalfile.read().splitlines())
+    tags -= set(['\n'])
+    evalfile.close()
+    
   for assignment in assignments_with_tags:
     if gradebook[student][assignment[0]].strip() is not '':
       tags.add('{'+assignment[1]+assignment[2]+'} : '+assignment[0])
-  evalfile = open(target, 'w')
-  evalfile.write('\n'.join(sorted(tags)))
-  evalfile.close()
+      
+  for sec in secnames:
+    if sec in notfound:
+      continue
+    evalfile = open(cloneAll.target+"/"+student+"/"+sec+"/"+student+"-eval.txt", 'w')
+    evalfile.write('\n'.join(sorted(ones_in_sec(tags, sec))))
+    evalfile.close()
