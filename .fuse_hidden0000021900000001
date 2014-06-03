@@ -13,4 +13,4 @@ echo "Directory for tracking seminar work" > sem/README
 touch prog/$1-eval.txt arch/$1-eval.txt sem/$1-eval.txt
 git add .
 git commit -m "added arch and prog dirs for organization"
-# git push origin master
+git push origin master
