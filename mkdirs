@@ -6,9 +6,11 @@
 cd $2
 cd $1
 git pull
-mkdir arch prog
+mkdir arch prog sem
 echo "Directory for Architecture work" > arch/README
 echo "Directory for Programming work" > prog/README
+echo "Directory for tracking seminar work" > sem/README
+touch prog/$1-eval.txt arch/$1-eval.txt sem/$1-eval.txt
 git add .
 git commit -m "added arch and prog dirs for organization"
 git push origin master
