@@ -1,6 +1,6 @@
-from subprocess import Popen
+from subprocess import call
 import names
 
-for student in ("model"): # names.student_info_field("email"):
+for student in names.student_info_field("email"):
   #altered for Spring quarter
-  Popen(["./spring_mkdirs", student, "../grading/"])
+  call(["./mkdirs", student, "./repos/"])
