@@ -151,13 +151,16 @@ def prog_callback(tags):
 		results = re.search("\{C[0-9]*\}", tag)
 		if (results != None):
 			prog_count += 1
-			text_lines += ijava_dict[tag] + "; "
+			text_lines.append(ijava_dict[tag] + "; ")
 
 	if (prog_count > 0):
 		text_lines.insert(0,
 						  name + " worked on the iJava interactive online textbook and demonstrated understanding of the following concepts: ")
-		text_lines[len(text_lines) - 1] = "and " + text_lines[len(text_lines) - 1] + "\n"
+		line = text_lines[len(text_lines) - 1]
+		line = line[:len(line)-2] + "."
+		text_lines[len(text_lines) - 1] = "and " + line + "\n"
 
+	prev_prog_count = prog_count
 	goal_dict = {
 	"{L1}" : "encapsulation with getters and setters",
 	"{L2}" : "interfaces and implementation",
@@ -170,23 +173,24 @@ def prog_callback(tags):
 	"{L9}" : "incremental development using git and GitHub."
 	}
 
-	prog_count = 0
-
 	for x in tags:
 		tokens = x.split(":")
 		tag = tokens[0].rstrip()
 		results = re.search("\{L[0-9]*\}", tag)
 		if (results != None):
 			prog_count += 1
-			text_lines += goal_dict[tag] + "; "
+			text_lines.append(goal_dict[tag] + "; ")
 
-	if (prog_count > 0):
+	if (prog_count > prev_prog_count):
 		text_lines.insert(0, name + " demonstrated understanding of the following learning goals: ")
-		text_lines[len(text_lines) - 1] = "and " + text_lines[len(text_lines) - 1] + "\n"
+		line = text_lines[len(text_lines) - 1]
+		line = line[:len(line)-2] + "."
+		text_lines[len(text_lines) - 1] = "and " + line + "\n"
 
 	if (prog_count >= 9):
 		cred_lines.append("4 - Java Programming II\n")
 	else:
+        # If there are not the threshold of 9 learning goals, reset everything to a blank eval
 		text_lines = []
 
 	return (text_lines, cred_lines)
