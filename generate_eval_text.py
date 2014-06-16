@@ -9,7 +9,10 @@ if (len(sys.argv) < 2):
 else:
 	target = sys.argv[1]
 
-override = sys.argv[2]
+override = None
+
+if (len(sys.argv) >= 2):
+	override = sys.argv[2]
 
 if (override != None):
 	print("Override detected")
