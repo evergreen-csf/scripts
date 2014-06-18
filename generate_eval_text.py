@@ -11,7 +11,7 @@ else:
 
 override = None
 
-if (len(sys.argv) >= 2):
+if (len(sys.argv) >= 3):
 	override = sys.argv[2]
 
 if (override != None):
@@ -160,6 +160,7 @@ def prog_callback(tags):
 		tag = tokens[0].rstrip()
 		results = re.search("\{C[0-9]*\}", tag)
 		if (results != None):
+			print("Detected tag" + tag)
 			prog_count += 1
 			text_lines.append(ijava_dict[tag] + "; ")
 
